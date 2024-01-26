@@ -39,11 +39,22 @@ public class UnitStartegyOverseer
     private bool attackIsPossible()
     {
         if(unit.TargetObject != null)
-            if (unit.TargetObject is Damagable)
-                if (Vector3.Distance(unit.getPriorityInofrmation().position,unit.TargetObject.getPriorityInofrmation().position) <= unit.UnitData.AttackRange)
-                    return true;
+            if(CheckTarget())
+                if (unit.TargetObject is Damagable)
+                    if (Vector3.Distance(unit.getPriorityInofrmation().position,unit.TargetObject.getPriorityInofrmation().position) <= unit.UnitData.AttackRange)
+                      return true;
 
         return false;
+    }
+
+    private bool CheckTarget()
+    {
+        if (((Damagable)unit.TargetObject).isDead())
+        {
+            unit.TargetObject = null;
+            return false;
+        }
+        return true;
     }
 
     public void MoveStrategyOn()

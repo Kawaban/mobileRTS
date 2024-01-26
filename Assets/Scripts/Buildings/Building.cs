@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
 {
     private float health;
+    private bool dead = false;
     [SerializeField] private BuildingData buildingData;
 
 
@@ -25,7 +26,13 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
 
     private void destroy()
     {
+        dead = true;
         Destroy(gameObject);
+    }
+
+    public bool isDead()
+    {
+        return dead;
     }
 
     public abstract PriorityInfo getPriorityInofrmation();

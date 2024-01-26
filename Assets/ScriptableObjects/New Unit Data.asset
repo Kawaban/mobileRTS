@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1872654f9a9ca24487e7f8825b78e1a, type: 3}
   m_Name: New Unit Data
   m_EditorClassIdentifier: 
-  health: 50
+  health: 5
   speed: 10
   acceleration: 5
   rotationSpeed: 100
-  targetOffset: 0
+  targetOffset: 10
+  damage: 1
+  attackRange: 30
+  reloadTime: 3

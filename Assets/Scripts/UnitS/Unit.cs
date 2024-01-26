@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,6 +12,7 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     private PointOfInterest targetObject;
     private PriorityObserver enemyObserver;
     private UnitStartegyOverseer startegyOverseer;
+    private bool dead = false;
     
 
     public UnitData UnitData { get => unitData;  }
@@ -66,7 +68,17 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
 
     private void Death()
     {
+        dead = true;
         Destroy(gameObject);
     }
 
+    public void AttackCooldown(UnitAttack unitAttack)
+    {
+       StartCoroutine(unitAttack.AttackCooldown(unitData.ReloadTime));
+    }
+
+    public  bool isDead()
+    {
+        return dead;
+    }
 }

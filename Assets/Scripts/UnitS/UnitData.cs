@@ -9,12 +9,14 @@ public class UnitData : ScriptableObject
     [SerializeField] private float targetOffset;
     [SerializeField] private float damage;
     [SerializeField] private float attackRange;
+    [SerializeField] private float reloadTime;
 
-    public float Speed { get => speed; set => speed = value; }
-    public float Acceleration { get => acceleration; set => acceleration = value; }
-    public float RotationSpeed { get => rotationSpeed; set => rotationSpeed = value; }
-    public float TargetOffset { get => targetOffset; set => targetOffset = value; }
-    public float Health { get => health; set => health = value; }
-    public float Damage { get => damage; set => damage = value; }
+    public float Speed { get => speed;  }
+    public float Acceleration { get => acceleration;}
+    public float RotationSpeed { get => rotationSpeed;}
+    public float TargetOffset { get => targetOffset; }
+    public float Health { get => health;  }
+    public float Damage { get => damage;  }
     public float AttackRange { get => attackRange; }
+    public float ReloadTime { get => reloadTime;  }
 }
