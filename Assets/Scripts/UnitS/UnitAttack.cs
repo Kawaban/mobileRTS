@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class UnitAttack : UnitStrategy
 {
-    private Unit unit;
-    public UnitAttack(Unit unit) 
-    {   
-        this.unit = unit;
+    public void Execute(Unit unit)
+    {
+        SetPath(unit);
+        Shoot(unit);
     }
 
-    public void Execute()
+    private void Shoot(Unit unit)
     {
-        
+        if (((Damagable)unit.TargetObject).damageTaken(unit.UnitData.Damage))
+        {
+            unit.EnemyObserver.PointsOfInterest.Remove(unit.TargetObject);
+            unit.TargetObject = null;
+        }
     }
 
-    /*private void Shoot(Damagable obj)
+    private void SetPath(Unit unit)
     {
-        if (obj.damageTaken(unitData.Damage))
-            enemyObserver.PointsOfInterest.Remove((PointOfInterest)obj);
-    }*/
+        unit.DestinationPoint = unit.TargetObject.getPriorityInofrmation().position;
+        unit.Agent.SetDestination(unit.DestinationPoint);
+        unit.Agent.stoppingDistance = unit.UnitData.TargetOffset;
+    }
 
 }

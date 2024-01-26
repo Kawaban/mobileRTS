@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class UnitPassive : UnitStrategy
 {
-    public void Execute()
+   
+    public void Execute(Unit unit)
     {
-        throw new System.NotImplementedException();
+        unit.DestinationPoint = unit.getPriorityInofrmation().position;
+        SetPath(unit);
+    }
+    
+    private void SetPath(Unit unit)
+    {
+        unit.Agent.SetDestination(unit.DestinationPoint);
+        unit.Agent.stoppingDistance = 0;
+        unit.TargetObject = null;
     }
 
 }

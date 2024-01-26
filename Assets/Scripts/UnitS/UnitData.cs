@@ -8,6 +8,7 @@ public class UnitData : ScriptableObject
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float targetOffset;
     [SerializeField] private float damage;
+    [SerializeField] private float attackRange;
 
     public float Speed { get => speed; set => speed = value; }
     public float Acceleration { get => acceleration; set => acceleration = value; }
@@ -15,4 +16,5 @@ public class UnitData : ScriptableObject
     public float TargetOffset { get => targetOffset; set => targetOffset = value; }
     public float Health { get => health; set => health = value; }
     public float Damage { get => damage; set => damage = value; }
+    public float AttackRange { get => attackRange; }
 }

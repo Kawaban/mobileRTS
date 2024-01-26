@@ -16,8 +16,9 @@ public class Factory : Building
     {
         level = 0;
         levelMax = factoryDataLevels.Count;
-        StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
-    }
+        /* StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));*/
+        readyToGenearate = true;
+}
 
     void Update()
     {

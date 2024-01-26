@@ -11,5 +11,5 @@ public enum UnitStrategyType
 
 public interface UnitStrategy
 {
-    public void Execute();
+    public void Execute(Unit unit);
 }

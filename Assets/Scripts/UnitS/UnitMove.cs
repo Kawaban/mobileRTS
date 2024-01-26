@@ -5,25 +5,21 @@ using UnityEngine;
 public class UnitMove : UnitStrategy
 {
 
-    private Unit unit;
-    public UnitMove(Unit unit)
+    
+
+    public void Execute(Unit unit)
     {
-        this.unit = unit;
+        CalculateDestination(unit);
+        SetPath(unit);
     }
 
-    public void Execute()
-    {
-        CalculateDestination();
-        SetPath();
-    }
-
-    private void SetPath()
+    private void SetPath(Unit unit)
     {
         unit.Agent.SetDestination(unit.DestinationPoint);
         unit.Agent.stoppingDistance = unit.UnitData.TargetOffset;
     }
 
-    private void CalculateDestination()
+    private void CalculateDestination(Unit unit)
     {
         float maxMark = float.MinValue;
         PointOfInterest best = null;
@@ -39,6 +35,7 @@ public class UnitMove : UnitStrategy
 
         if (best != null)
         {
+            unit.TargetObject = best;
             unit.DestinationPoint = best.getPriorityInofrmation().position;
         }
 

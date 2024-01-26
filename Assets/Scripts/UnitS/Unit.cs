@@ -8,39 +8,32 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     [SerializeField] private NavMeshAgent agent;
     private float health;
     private Vector3 destinationPoint;
+    private PointOfInterest targetObject;
     private PriorityObserver enemyObserver;
-    private UnitStrategy strategy;
-    private UnitStrategyType strategyType;
-    private Dictionary<UnitStrategyType, UnitStrategy> strategies;
+    private UnitStartegyOverseer startegyOverseer;
+    
 
     public UnitData UnitData { get => unitData;  }
     public NavMeshAgent Agent { get => agent;  }
     public float Health { get => health; set => health = value; }
     public Vector3 DestinationPoint { get => destinationPoint; set => destinationPoint = value; }
     public PriorityObserver EnemyObserver { get => enemyObserver; set => enemyObserver = value; }
+    public PointOfInterest TargetObject { get => targetObject; set => targetObject = value; }
 
     void Start()
     {
-        strategies = new Dictionary<UnitStrategyType, UnitStrategy>
-        {
-            { UnitStrategyType.PASSIVE, new UnitPassive() },
-            { UnitStrategyType.MOVE, new UnitMove(this) },
-            { UnitStrategyType.ATTACK, new UnitAttack(this) }
-        };
+        startegyOverseer = new UnitStartegyOverseer(this);
         health = unitData.Health;
         NavigationConfiguration();
-        setDefaultStrategy();
+        startegyOverseer.setDefaultStrategy();
     }
 
-    private void setDefaultStrategy()
-    {
-        strategyType = UnitStrategyType.PASSIVE;
-        strategy = strategies[strategyType];
-    }
+    
 
     void Update()
     {
-        strategy.Execute();
+        startegyOverseer.reconsiderStrategy();
+        startegyOverseer.ExecuteStrategy();
     }
 
     private void NavigationConfiguration()
