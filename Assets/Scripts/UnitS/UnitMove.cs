@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class UnitMove : UnitStrategy
 {
 
-    
+
 
     public void Execute(Unit unit)
     {
@@ -23,7 +19,7 @@ public class UnitMove : UnitStrategy
     {
         float maxMark = float.MinValue;
         PointOfInterest best = null;
-        foreach (PointOfInterest point in unit.EnemyObserver.PointsOfInterest)
+        foreach (PointOfInterest point in unit.GetPointOfInterests())
         {
             float mark = PriorityCalculator.calculate(unit.getPriorityInofrmation(), point.getPriorityInofrmation());
             if (maxMark < mark)

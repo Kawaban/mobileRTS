@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitStartegyOverseer 
+public class UnitStartegyOverseer
 {
     private Unit unit;
     private Dictionary<UnitStrategyType, UnitStrategy> strategies;
@@ -23,7 +22,7 @@ public class UnitStartegyOverseer
 
     public void reconsiderStrategy()
     {
-        if(attackIsPossible())
+        if (attackIsPossible())
         {
             strategyType = UnitStrategyType.ATTACK;
             strategy = strategies[strategyType];
@@ -38,11 +37,11 @@ public class UnitStartegyOverseer
 
     private bool attackIsPossible()
     {
-        if(unit.TargetObject != null)
-            if(CheckTarget())
-                if (unit.TargetObject is Damagable)
-                    if (Vector3.Distance(unit.getPriorityInofrmation().position,unit.TargetObject.getPriorityInofrmation().position) <= unit.UnitData.AttackRange)
-                      return true;
+        if (unit.TargetObject != null)
+            if (unit.TargetObject is Damagable)
+                if (CheckTarget())
+                    if (Vector3.Distance(unit.getPriorityInofrmation().position, unit.TargetObject.getPriorityInofrmation().position) <= unit.UnitData.AttackRange)
+                        return true;
 
         return false;
     }

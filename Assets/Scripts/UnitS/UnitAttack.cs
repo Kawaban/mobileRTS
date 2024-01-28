@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitAttack :  UnitStrategy
+public class UnitAttack : UnitStrategy
 {
-    private bool canAttack=true;
+    private bool canAttack = true;
     public void Execute(Unit unit)
     {
         CheckTarget(unit);
         SetPath(unit);
-        if(canAttack)  
+        if (canAttack)
             Shoot(unit);
     }
 
@@ -17,9 +16,9 @@ public class UnitAttack :  UnitStrategy
     {
         if (((Damagable)unit.TargetObject).damageTaken(unit.UnitData.Damage))
         {
-            unit.EnemyObserver.PointsOfInterest.Remove(unit.TargetObject);
             unit.TargetObject = null;
         }
+
         unit.AttackCooldown(this);
     }
 
@@ -27,7 +26,7 @@ public class UnitAttack :  UnitStrategy
     {
         if (((Damagable)unit.TargetObject).isDead())
         {
-            unit.TargetObject= null;
+            unit.TargetObject = null;
         }
     }
 
@@ -40,7 +39,7 @@ public class UnitAttack :  UnitStrategy
 
     private void SetPath(Unit unit)
     {
-        if(unit.TargetObject != null) 
+        if (unit.TargetObject != null)
             unit.DestinationPoint = unit.TargetObject.getPriorityInofrmation().position;
 
         unit.Agent.SetDestination(unit.DestinationPoint);

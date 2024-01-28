@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Factory : Building
 {
@@ -9,8 +10,16 @@ public class Factory : Building
     private int level;
     private int levelMax;
     private bool readyToGenearate;
-    [SerializeField] private PriorityObserver enemyObserver;
-    [SerializeField] private PriorityObserver allyObserver;
+    private UnityEvent<Unit> unitEvent;
+
+    public UnityEvent<Unit> UnitEvent { get => unitEvent; }
+
+    void Awake()
+    {
+        if (unitEvent == null)
+            unitEvent = new UnityEvent<Unit>();
+    }
+
 
     void Start()
     {
@@ -18,7 +27,7 @@ public class Factory : Building
         levelMax = factoryDataLevels.Count;
         /* StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));*/
         readyToGenearate = true;
-}
+    }
 
     void Update()
     {
@@ -29,8 +38,8 @@ public class Factory : Building
     private void GenerateUnit()
     {
         GameObject generatedUnit = Instantiate(factoryDataLevels[level].GeneratedUnit, spawnPoint.position, Quaternion.identity);
-        allyObserver.PointsOfInterest.Add(generatedUnit.GetComponent<Unit>());
-        generatedUnit.GetComponent<Unit>().EnemyObserver = enemyObserver;
+        unitEvent.Invoke(generatedUnit.GetComponent<Unit>());
+
         StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
     }
 

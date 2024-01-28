@@ -3,7 +3,8 @@ using UnityEngine;
 public enum PointType
 {
     UNIT,
-    FACTORY
+    FACTORY,
+    CONTROL_POINT
 }
 
 public struct PriorityInfo

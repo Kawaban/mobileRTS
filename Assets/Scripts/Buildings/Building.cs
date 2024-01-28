@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
 {
@@ -7,7 +8,15 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
     private bool dead = false;
     [SerializeField] private BuildingData buildingData;
 
+    private UnityEvent<Building> eventDeath;
 
+    public UnityEvent<Building> EventDeath { get => eventDeath; }
+
+    void Awake()
+    {
+        if (eventDeath == null)
+            eventDeath = new UnityEvent<Building>();
+    }
     void Start()
     {
         health = buildingData.Health;
@@ -27,6 +36,7 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
     private void destroy()
     {
         dead = true;
+        eventDeath.Invoke(this);
         Destroy(gameObject);
     }
 

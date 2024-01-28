@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Unit : MonoBehaviour, PointOfInterest, Damagable
 {
@@ -10,17 +10,29 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     private float health;
     private Vector3 destinationPoint;
     private PointOfInterest targetObject;
-    private PriorityObserver enemyObserver;
     private UnitStartegyOverseer startegyOverseer;
     private bool dead = false;
-    
 
-    public UnitData UnitData { get => unitData;  }
-    public NavMeshAgent Agent { get => agent;  }
+    private List<Commander> enemyCommanders;
+    private NeutralObjectManager neutralObjectManager;
+
+    private UnityEvent<Unit> eventDeath;
+
+    public UnitData UnitData { get => unitData; }
+    public NavMeshAgent Agent { get => agent; }
     public float Health { get => health; set => health = value; }
     public Vector3 DestinationPoint { get => destinationPoint; set => destinationPoint = value; }
-    public PriorityObserver EnemyObserver { get => enemyObserver; set => enemyObserver = value; }
     public PointOfInterest TargetObject { get => targetObject; set => targetObject = value; }
+
+    public NeutralObjectManager NeutralObjectManager { get => neutralObjectManager; set => neutralObjectManager = value; }
+    public List<Commander> EnemyCommanders { get => enemyCommanders; set => enemyCommanders = value; }
+    public UnityEvent<Unit> EventDeath { get => eventDeath; }
+
+    void Awake()
+    {
+        if (eventDeath != null)
+            eventDeath = new UnityEvent<Unit>();
+    }
 
     void Start()
     {
@@ -30,7 +42,7 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
         startegyOverseer.setDefaultStrategy();
     }
 
-    
+
 
     void Update()
     {
@@ -64,21 +76,35 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
         return false;
     }
 
-    
+
 
     private void Death()
     {
         dead = true;
+        eventDeath.Invoke(this);
         Destroy(gameObject);
     }
 
     public void AttackCooldown(UnitAttack unitAttack)
     {
-       StartCoroutine(unitAttack.AttackCooldown(unitData.ReloadTime));
+        StartCoroutine(unitAttack.AttackCooldown(unitData.ReloadTime));
     }
 
-    public  bool isDead()
+    public bool isDead()
     {
         return dead;
+    }
+
+    public virtual List<PointOfInterest> GetPointOfInterests()
+    {
+        List<PointOfInterest> points = new List<PointOfInterest>();
+
+        foreach (Commander commander in enemyCommanders)
+            points.AddRange(commander.getPointsOfInterest());
+
+        foreach (NeutralObject neutralObject in neutralObjectManager.objects)
+            points.Add(neutralObject);
+
+        return points;
     }
 }

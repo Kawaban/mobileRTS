@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 11400000, guid: 1749f797ed70c5042a45ed7e2b3c70ed, type: 2}
   factoryDataLevels:
-  - {fileID: 11400000, guid: 89552ff1a582e374190abcf3b0eb850d, type: 2}
+  - {fileID: 11400000, guid: 9377495f7e4905b408d32d1af08f8f59, type: 2}
   spawnPoint: {fileID: 992843179}
   enemyObserver: {fileID: 11400000, guid: 9170e05627b58fc46b3bcee00563f9b7, type: 2}
   allyObserver: {fileID: 11400000, guid: 57e4f10529b4c7e4892cc0209a074834, type: 2}
@@ -183,6 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330810793}
+  - component: {fileID: 330810794}
   m_Layer: 0
   m_Name: DebugTarget
   m_TagString: Untagged
@@ -205,6 +206,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &330810794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330810792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56d53a19a9f99e4ca28776b36da4e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Observers:
+  - {fileID: 11400000, guid: 9170e05627b58fc46b3bcee00563f9b7, type: 2}
+  - {fileID: 11400000, guid: 57e4f10529b4c7e4892cc0209a074834, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
