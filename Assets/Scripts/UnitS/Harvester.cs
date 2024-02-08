@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Harvester : Unit
 {
-    public bool isFull = false;
+    [System.NonSerialized] public bool isFull = false;
     [SerializeField] private HarvesterData data;
-    public float mineralValue=0;
+    [System.NonSerialized] public float mineralValue=0;
 
     public HarvesterData Data { get => data; }
 

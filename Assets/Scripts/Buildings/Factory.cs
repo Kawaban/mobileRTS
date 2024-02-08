@@ -41,12 +41,16 @@ public class Factory : Building
 
     private void GenerateUnit()
     {
-        GameObject generatedUnit = Instantiate(factoryDataLevels[level].GeneratedUnit, spawnPoint.position, Quaternion.identity);
-        unitEvent.Invoke(generatedUnit.GetComponent<Unit>());
+        if (commander.mineralLoss(factoryDataLevels[level].CostOfGeneration))
+        {
+            GameObject generatedUnit = Instantiate(factoryDataLevels[level].GeneratedUnit, spawnPoint.position, Quaternion.identity);
+            unitEvent.Invoke(generatedUnit.GetComponent<Unit>());
 
-        StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
+            StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
+        }
 
     }
+
 
     public IEnumerator GenerationCooldown(float seconds)
     {

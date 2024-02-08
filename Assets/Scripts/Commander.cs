@@ -8,9 +8,10 @@ public class Commander : MonoBehaviour
     [SerializeField] private List<Commander> enemyCommanders;
     [SerializeField] private CommanderData commanderData;
     [SerializeField] private NeutralObjectManager neutralObjectManager;
-    [SerializeField] private Transform debugPoint;
+    [SerializeField] private Transform debugPointmining;
+    [SerializeField] private Transform debugPointfactory;
 
-    public float minerals = 100;
+    private float minerals = 100;
 
     public List<Unit> Units { get => units; }
     public List<Building> Buildings { get => buildings; }
@@ -20,6 +21,7 @@ public class Commander : MonoBehaviour
         units = new List<Unit>();
         buildings = new List<Building>();
         createMiningComplex();
+        createFactory();
     }
 
      void Update()
@@ -29,7 +31,7 @@ public class Commander : MonoBehaviour
 
     public void createFactory()
     {
-        GameObject factory = Instantiate(commanderData.Factory, debugPoint);
+        GameObject factory = Instantiate(commanderData.Factory, debugPointfactory);
         Factory factoryObj = factory.GetComponent<Factory>();
 
         factoryObj.Commander = this;
@@ -40,7 +42,7 @@ public class Commander : MonoBehaviour
 
     public void createMiningComplex()
     {
-        GameObject factory = Instantiate(commanderData.MiningComplex, debugPoint);
+        GameObject factory = Instantiate(commanderData.MiningComplex, debugPointmining);
         Factory factoryObj = factory.GetComponent<MiningComplex>();
 
         factoryObj.Commander = this;
@@ -87,6 +89,20 @@ public class Commander : MonoBehaviour
     public void BuildingDeath(Building building)
     {
         buildings.Remove(building);
+    }
+
+    public void mineralIncome(float value)
+    {
+        minerals += value;
+    }
+
+    public bool mineralLoss(float value)
+    {
+        if (value > minerals)
+            return false;
+        
+        minerals -= value;
+        return true;
     }
 
 

@@ -4,7 +4,9 @@ public class FactoryData : ScriptableObject
 {
     [SerializeField] private GameObject generatedUnit;
     [SerializeField] private float secondsToGenerate;
+    [SerializeField] private float costOfGeneration;
 
-    public GameObject GeneratedUnit { get => generatedUnit; set => generatedUnit = value; }
-    public float SecondsToGenerate { get => secondsToGenerate; set => secondsToGenerate = value; }
+    public GameObject GeneratedUnit { get => generatedUnit;  }
+    public float SecondsToGenerate { get => secondsToGenerate; }
+    public float CostOfGeneration { get => costOfGeneration; }
 }

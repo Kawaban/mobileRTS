@@ -8,7 +8,7 @@ public class MiningComplex : Factory
    
     public void Extraction(float value)
     {
-        Commander.minerals += value;
+        Commander.mineralIncome(value);
     }
 
     public override PriorityInfo getPriorityInofrmation()

@@ -110,7 +110,8 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
             points.AddRange(commander.getPointsOfInterest());
 
         foreach (NeutralObject neutralObject in neutralObjectManager.objects)
-            points.Add(neutralObject);
+            if(!(neutralObject is Mineral))
+             points.Add(neutralObject);
 
         return points;
     }
