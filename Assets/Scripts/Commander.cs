@@ -8,6 +8,9 @@ public class Commander : MonoBehaviour
     [SerializeField] private List<Commander> enemyCommanders;
     [SerializeField] private CommanderData commanderData;
     [SerializeField] private NeutralObjectManager neutralObjectManager;
+    [SerializeField] private Transform debugPoint;
+
+    public float minerals = 100;
 
     public List<Unit> Units { get => units; }
     public List<Building> Buildings { get => buildings; }
@@ -16,14 +19,31 @@ public class Commander : MonoBehaviour
     {
         units = new List<Unit>();
         buildings = new List<Building>();
+        createMiningComplex();
+    }
 
+     void Update()
+    {
+        Debug.Log(minerals);    
     }
 
     public void createFactory()
     {
-        GameObject factory = Instantiate(commanderData.Factory);
+        GameObject factory = Instantiate(commanderData.Factory, debugPoint);
         Factory factoryObj = factory.GetComponent<Factory>();
 
+        factoryObj.Commander = this;
+        factoryObj.UnitEvent.AddListener(addUnit);
+        factoryObj.EventDeath.AddListener(BuildingDeath);
+        buildings.Add(factoryObj);
+    }
+
+    public void createMiningComplex()
+    {
+        GameObject factory = Instantiate(commanderData.MiningComplex, debugPoint);
+        Factory factoryObj = factory.GetComponent<MiningComplex>();
+
+        factoryObj.Commander = this;
         factoryObj.UnitEvent.AddListener(addUnit);
         factoryObj.EventDeath.AddListener(BuildingDeath);
         buildings.Add(factoryObj);
@@ -33,6 +53,7 @@ public class Commander : MonoBehaviour
     {
         unit.EnemyCommanders = enemyCommanders;
         unit.NeutralObjectManager = neutralObjectManager;
+        unit.OurCommander = this;
 
         unit.EventDeath.AddListener(UnitDeath);
         units.Add(unit);

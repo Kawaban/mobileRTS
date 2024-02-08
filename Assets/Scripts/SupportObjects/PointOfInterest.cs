@@ -4,7 +4,10 @@ public enum PointType
 {
     UNIT,
     FACTORY,
-    CONTROL_POINT
+    CONTROL_POINT,
+    MINERAL,
+    HARVESTER,
+    MINING_COMPLEX
 }
 
 public struct PriorityInfo

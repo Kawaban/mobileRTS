@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1872654f9a9ca24487e7f8825b78e1a, type: 3}
-  m_Name: New Unit Data
+  m_Script: {fileID: 11500000, guid: 08c3e11aa6214ac4a98977f8c5ea6c56, type: 3}
+  m_Name: ds
   m_EditorClassIdentifier: 
-  health: 5
-  speed: 10
-  acceleration: 5
-  rotationSpeed: 100
-  targetOffset: 10
-  damage: 10
-  attackRange: 30
-  reloadTime: 3
+  factory: {fileID: 5324959027439579054, guid: 39953f7ccc7aab5498293afc9519a85d, type: 3}

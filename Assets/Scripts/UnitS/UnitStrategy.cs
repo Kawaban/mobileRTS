@@ -2,7 +2,9 @@ public enum UnitStrategyType
 {
     ATTACK,
     MOVE,
-    PASSIVE
+    PASSIVE,
+    MINE,
+    EXCTRACT
 }
 
 public interface UnitStrategy

@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1872654f9a9ca24487e7f8825b78e1a, type: 3}
-  m_Name: New Unit Data
+  m_Script: {fileID: 11500000, guid: a0894ad9956fc0a4eadb381ef99fd3e4, type: 3}
+  m_Name: MineralData
   m_EditorClassIdentifier: 
-  health: 5
-  speed: 10
-  acceleration: 5
-  rotationSpeed: 100
-  targetOffset: 10
-  damage: 10
-  attackRange: 30
-  reloadTime: 3
+  mineralQuality: 0
+  startMineralValue: 0

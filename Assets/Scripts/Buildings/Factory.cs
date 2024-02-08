@@ -11,11 +11,14 @@ public class Factory : Building
     private int levelMax;
     private bool readyToGenearate;
     private UnityEvent<Unit> unitEvent;
+    private Commander commander;
 
     public UnityEvent<Unit> UnitEvent { get => unitEvent; }
+    public Commander Commander { get => commander; set => commander = value; }
 
     void Awake()
     {
+        base.baseAwake();
         if (unitEvent == null)
             unitEvent = new UnityEvent<Unit>();
     }
@@ -23,6 +26,7 @@ public class Factory : Building
 
     void Start()
     {
+        base.baseStart();
         level = 0;
         levelMax = factoryDataLevels.Count;
         /* StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));*/
@@ -41,6 +45,7 @@ public class Factory : Building
         unitEvent.Invoke(generatedUnit.GetComponent<Unit>());
 
         StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
+
     }
 
     public IEnumerator GenerationCooldown(float seconds)

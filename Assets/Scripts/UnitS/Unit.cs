@@ -10,11 +10,12 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     private float health;
     private Vector3 destinationPoint;
     private PointOfInterest targetObject;
-    private UnitStartegyOverseer startegyOverseer;
+    protected UnitStartegyOverseer startegyOverseer;
     private bool dead = false;
 
     private List<Commander> enemyCommanders;
     private NeutralObjectManager neutralObjectManager;
+    private Commander ourCommander;
 
     private UnityEvent<Unit> eventDeath;
 
@@ -27,19 +28,25 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     public NeutralObjectManager NeutralObjectManager { get => neutralObjectManager; set => neutralObjectManager = value; }
     public List<Commander> EnemyCommanders { get => enemyCommanders; set => enemyCommanders = value; }
     public UnityEvent<Unit> EventDeath { get => eventDeath; }
+    public Commander OurCommander { get => ourCommander; set => ourCommander = value; }
 
     void Awake()
     {
-        if (eventDeath != null)
+        if (eventDeath == null)
             eventDeath = new UnityEvent<Unit>();
     }
 
-    void Start()
+     public virtual void onStart()
     {
         startegyOverseer = new UnitStartegyOverseer(this);
         health = unitData.Health;
         NavigationConfiguration();
         startegyOverseer.setDefaultStrategy();
+    }
+
+    void Start()
+    {
+        onStart();
     }
 
 
@@ -57,7 +64,7 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
         agent.angularSpeed = unitData.RotationSpeed;
     }
 
-    public PriorityInfo getPriorityInofrmation()
+    public virtual PriorityInfo getPriorityInofrmation()
     {
         PriorityInfo priorityInfo = new PriorityInfo();
         priorityInfo.position = gameObject.transform.position;

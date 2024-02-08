@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7286941019313946316}
   - component: {fileID: 7887775197882917173}
   - component: {fileID: 3991676522758379736}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_R02_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1600781690601898994}
   - component: {fileID: 2288591029211249617}
   - component: {fileID: 5341926157615892012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_L02_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2420067890744938421}
   - component: {fileID: 7622441904233153554}
   - component: {fileID: 5310817683353267695}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Mouth_R_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4393573961150679418}
   - component: {fileID: 6871796888558832795}
   - component: {fileID: 7765318151654631084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Head_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 3010671604476985415}
   - component: {fileID: 8827433270705133384}
   - component: {fileID: 5987328143667988452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_L02_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4815525787406266551}
   - component: {fileID: 3712116115331021133}
   - component: {fileID: 1189220485773570004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_L03_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 9037352195441770601}
   - component: {fileID: 7712408569253807853}
   - component: {fileID: 7546981995993441621}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Neck_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 5024144970813806966}
   - component: {fileID: 6134719140134779429}
   - component: {fileID: 574783512719131823}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_L01_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 6239223543215055193}
   - component: {fileID: 4622521416868758771}
   - component: {fileID: 3174696295589148932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_L03_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 2748322427266089904}
   - component: {fileID: 8079420166409071370}
   - component: {fileID: 3987907662844679034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_R01_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,9 +848,9 @@ GameObject:
   - component: {fileID: 6754987975850856832}
   - component: {fileID: 951170590868801586}
   - component: {fileID: 5499420696649398759}
-  - component: {fileID: 1329936699225813253}
   - component: {fileID: 8205739561593177021}
-  m_Layer: 0
+  - component: {fileID: 1655488266471696754}
+  m_Layer: 10
   m_Name: unit_Harvester_A_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,8 +866,8 @@ Transform:
   m_GameObject: {fileID: 5643345378341590766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.99156, y: 0.5, z: 12.40575}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -14.5, y: 0.5, z: -30.2}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6558588290444592635}
@@ -930,20 +930,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1329936699225813253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643345378341590766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ba933bdbdcc6a418e157b8eb7cd898, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitData: {fileID: 11400000, guid: 971534e8c09dbef40885a9a1469cd42c, type: 2}
-  agent: {fileID: 8205739561593177021}
 --- !u!195 &8205739561593177021
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -966,6 +952,23 @@ NavMeshAgent:
   m_BaseOffset: -0.31
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1655488266471696754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643345378341590766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507bcf41953de8c43b856e82e270a7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: 971534e8c09dbef40885a9a1469cd42c, type: 2}
+  agent: {fileID: 8205739561593177021}
+  isFull: 0
+  data: {fileID: 11400000, guid: 40246bbd81fe7a345a5154a5e86285e5, type: 2}
+  mineralValue: 0
 --- !u!1 &5730875936062701405
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +980,7 @@ GameObject:
   - component: {fileID: 6931329404733766734}
   - component: {fileID: 2354435408255025880}
   - component: {fileID: 7189837398676258175}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_R03_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1063,7 @@ GameObject:
   - component: {fileID: 137733434420857449}
   - component: {fileID: 3979075105863241157}
   - component: {fileID: 4659123969731741742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_R03_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1147,7 @@ GameObject:
   - component: {fileID: 5556018038310276849}
   - component: {fileID: 4517587328686777787}
   - component: {fileID: 1885275921243738052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Mouth_L_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1230,7 @@ GameObject:
   - component: {fileID: 4796394051947422373}
   - component: {fileID: 2387524301527144928}
   - component: {fileID: 2181856959284891775}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_Strut_R02_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1314,7 @@ GameObject:
   - component: {fileID: 5364088125505858061}
   - component: {fileID: 4080636398641201642}
   - component: {fileID: 8410465983063039065}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_R01_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1397,7 @@ GameObject:
   - component: {fileID: 630184123943740891}
   - component: {fileID: 7941556036270736181}
   - component: {fileID: 8605993196800736572}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Wheel_L01_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1480,7 @@ GameObject:
   - component: {fileID: 6558588290444592635}
   - component: {fileID: 8814472121310369918}
   - component: {fileID: 358661498283927170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: unit_Harvester_A_Butt_yup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

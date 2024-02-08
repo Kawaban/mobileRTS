@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class UnitStartegyOverseer
 {
-    private Unit unit;
-    private Dictionary<UnitStrategyType, UnitStrategy> strategies;
-    private UnitStrategy strategy;
-    private UnitStrategyType strategyType;
+    protected Unit unit;
+    protected Dictionary<UnitStrategyType, UnitStrategy> strategies;
+    protected UnitStrategy strategy;
+    protected UnitStrategyType strategyType;
 
     public UnitStartegyOverseer(Unit unit)
     {
@@ -20,7 +20,7 @@ public class UnitStartegyOverseer
 
     }
 
-    public void reconsiderStrategy()
+    public virtual void reconsiderStrategy()
     {
         if (attackIsPossible())
         {
