@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbb3674ea4fbd643a738233fac68a40, type: 3}
   m_Name: HarvesterData
   m_EditorClassIdentifier: 
-  timeToMine: 0
-  timeToExtract: 0
-  mineRange: 0
-  extractRange: 0
-  mineValue: 0
+  timeToMine: 2
+  timeToExtract: 2
+  mineRange: 15
+  extractRange: 15
+  mineValue: 100

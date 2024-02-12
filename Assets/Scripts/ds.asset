@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ds
   m_EditorClassIdentifier: 
   factory: {fileID: 5324959027439579054, guid: 39953f7ccc7aab5498293afc9519a85d, type: 3}
+  miningComplex: {fileID: 9057486259320139907, guid: 08fea43e96c82ca4493ba0800a2290be,
+    type: 3}

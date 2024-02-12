@@ -15,22 +15,20 @@ public class Commander : MonoBehaviour
 
     public List<Unit> Units { get => units; }
     public List<Building> Buildings { get => buildings; }
+    public float Minerals { get => minerals;  }
 
     void Start()
     {
         units = new List<Unit>();
         buildings = new List<Building>();
-        createMiningComplex();
-        createFactory();
+      /*  createMiningComplex();
+        createFactory();*/
     }
 
-     void Update()
-    {
-        Debug.Log(minerals);    
-    }
 
-    public void createFactory()
+    public void createFactory(Vector3 position)
     {
+        debugPointfactory.position = position;
         GameObject factory = Instantiate(commanderData.Factory, debugPointfactory);
         Factory factoryObj = factory.GetComponent<Factory>();
 
@@ -40,8 +38,9 @@ public class Commander : MonoBehaviour
         buildings.Add(factoryObj);
     }
 
-    public void createMiningComplex()
+    public void createMiningComplex(Vector3 position)
     {
+        debugPointmining.position = position;
         GameObject factory = Instantiate(commanderData.MiningComplex, debugPointmining);
         Factory factoryObj = factory.GetComponent<MiningComplex>();
 

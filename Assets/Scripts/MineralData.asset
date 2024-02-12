@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0894ad9956fc0a4eadb381ef99fd3e4, type: 3}
   m_Name: MineralData
   m_EditorClassIdentifier: 
-  mineralQuality: 0
-  startMineralValue: 0
+  mineralQuality: 1
+  startMineralValue: 100000

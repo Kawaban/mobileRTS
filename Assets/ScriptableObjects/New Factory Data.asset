@@ -15,3 +15,4 @@ MonoBehaviour:
   generatedUnit: {fileID: 60879404341801180, guid: 79cda0c5d15f58244bcca3bb6a077f15,
     type: 3}
   secondsToGenerate: 5
+  costOfGeneration: 15

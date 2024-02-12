@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: u2
   m_EditorClassIdentifier: 
   health: 1
-  speed: 1
-  acceleration: 1
-  rotationSpeed: 1
-  targetOffset: 1
-  damage: 1
-  attackRange: 1
-  reloadTime: 1
+  speed: 10
+  acceleration: 3
+  rotationSpeed: 100
+  targetOffset: 10
+  damage: 0
+  attackRange: 0
+  reloadTime: 1000
