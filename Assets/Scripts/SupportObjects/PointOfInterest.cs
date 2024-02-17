@@ -10,6 +10,13 @@ public enum PointType
     MINING_COMPLEX
 }
 
+public enum BuildingType
+{
+   
+    FACTORY,
+    MINING_COMPLEX
+}
+
 public struct PriorityInfo
 {
     public Vector3 position;

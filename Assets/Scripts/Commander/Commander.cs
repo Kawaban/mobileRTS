@@ -8,14 +8,14 @@ public class Commander : MonoBehaviour
     [SerializeField] private List<Commander> enemyCommanders;
     [SerializeField] private CommanderData commanderData;
     [SerializeField] private NeutralObjectManager neutralObjectManager;
-    [SerializeField] private Transform debugPointmining;
-    [SerializeField] private Transform debugPointfactory;
+
 
     private float minerals = 100;
 
     public List<Unit> Units { get => units; }
     public List<Building> Buildings { get => buildings; }
     public float Minerals { get => minerals;  }
+    public CommanderData CommanderData { get => commanderData; }
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class Commander : MonoBehaviour
     }
 
 
-    public void createFactory(Vector3 position)
+    /*private void createFactory(Vector3 position)
     {
         debugPointfactory.position = position;
         GameObject factory = Instantiate(commanderData.Factory, debugPointfactory);
@@ -36,9 +36,48 @@ public class Commander : MonoBehaviour
         factoryObj.UnitEvent.AddListener(addUnit);
         factoryObj.EventDeath.AddListener(BuildingDeath);
         buildings.Add(factoryObj);
+    }*/
+
+    public void createBuilding(BuildingType buildingType, Vector3 position)
+    {
+
+        GameObject createdBulding;
+            switch (buildingType)
+            {
+            case BuildingType.FACTORY:
+                if(!mineralLoss(commanderData.Factory.GetComponent<Factory>().BuildingData.ConstructionCost))
+                    return;
+                createdBulding = Instantiate(commanderData.Factory, position, Quaternion.identity);
+                Factory factory = createdBulding.GetComponent<Factory>();
+                factory.Commander = this;
+                factory.UnitEvent.AddListener(addUnit);
+                factory.EventDeath.AddListener(BuildingDeath);
+                buildings.Add(factory);
+
+
+                break;
+            case BuildingType.MINING_COMPLEX:
+                if (!mineralLoss(commanderData.MiningComplex.GetComponent<Factory>().BuildingData.ConstructionCost))
+                    return;
+                createdBulding = Instantiate(commanderData.MiningComplex, position, Quaternion.identity);
+                factory= createdBulding.GetComponent<Factory>();
+                factory.Commander = this;
+                factory.UnitEvent.AddListener(addUnit);
+                factory.EventDeath.AddListener(BuildingDeath);
+                buildings.Add(factory);
+                break;
+
+            default:
+                break;
+                
+            }
+
+            
+            
+           
     }
 
-    public void createMiningComplex(Vector3 position)
+  /*  private void createMiningComplex(Vector3 position)
     {
         debugPointmining.position = position;
         GameObject factory = Instantiate(commanderData.MiningComplex, debugPointmining);
@@ -48,7 +87,7 @@ public class Commander : MonoBehaviour
         factoryObj.UnitEvent.AddListener(addUnit);
         factoryObj.EventDeath.AddListener(BuildingDeath);
         buildings.Add(factoryObj);
-    }
+    }*/
 
     public void addUnit(Unit unit)
     {

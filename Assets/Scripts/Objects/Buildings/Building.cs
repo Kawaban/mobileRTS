@@ -11,6 +11,7 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
     private UnityEvent<Building> eventDeath;
 
     public UnityEvent<Building> EventDeath { get => eventDeath; }
+    public BuildingData BuildingData { get => buildingData; }
 
     protected void baseAwake()
     {

@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: New Building Data
   m_EditorClassIdentifier: 
   health: 50
+  constructionCost: 10
+  width: 10
+  length: 10
+  height: 2
