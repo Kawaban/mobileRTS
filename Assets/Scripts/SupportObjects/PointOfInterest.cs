@@ -7,7 +7,8 @@ public enum PointType
     CONTROL_POINT,
     MINERAL,
     HARVESTER,
-    MINING_COMPLEX
+    MINING_COMPLEX,
+    TOYOTA
 }
 
 public enum BuildingType

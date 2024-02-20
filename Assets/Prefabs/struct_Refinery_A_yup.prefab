@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b12bdc5366d86a4abb368f5bdb4f336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 11400000, guid: 1749f797ed70c5042a45ed7e2b3c70ed, type: 2}
+  buildingData: {fileID: 11400000, guid: ac1eb3689e711a64dabcbec401079e97, type: 2}
   factoryDataLevels:
-  - {fileID: 11400000, guid: 9377495f7e4905b408d32d1af08f8f59, type: 2}
+  - {fileID: 11400000, guid: a872b9cdb043bdf4898d2ed01975caec, type: 2}
   spawnPoint: {fileID: 1018724792792600711}

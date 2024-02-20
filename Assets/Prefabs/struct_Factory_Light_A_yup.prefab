@@ -267,9 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78888970c09db548a3303624f8b746e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 11400000, guid: 1749f797ed70c5042a45ed7e2b3c70ed, type: 2}
+  buildingData: {fileID: 11400000, guid: f06b3644a9ee8b0448a7c013e0b56955, type: 2}
   factoryDataLevels:
-  - {fileID: 11400000, guid: 89552ff1a582e374190abcf3b0eb850d, type: 2}
+  - {fileID: 11400000, guid: 2ae896fe67b3aab4a9dd54e05b3c8111, type: 2}
   spawnPoint: {fileID: 8298508122052906138}
 --- !u!65 &4912143498537824007
 BoxCollider:

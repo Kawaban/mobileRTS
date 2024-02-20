@@ -3,14 +3,15 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class Unit : MonoBehaviour, PointOfInterest, Damagable
+public abstract class Unit : MonoBehaviour, PointOfInterest, Damagable
 {
     [SerializeField] private UnitData unitData;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private ParticleSystem deathEffect;
     private float health;
     private Vector3 destinationPoint;
     private PointOfInterest targetObject;
-    protected UnitStartegyOverseer startegyOverseer;
+    protected UnitStartegyOverseer strategyOverseer;
     private bool dead = false;
 
     private List<Commander> enemyCommanders;
@@ -38,10 +39,8 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
 
      public virtual void onStart()
     {
-        startegyOverseer = new UnitStartegyOverseer(this);
         health = unitData.Health;
         NavigationConfiguration();
-        startegyOverseer.setDefaultStrategy();
     }
 
     void Start()
@@ -53,8 +52,8 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
 
     void Update()
     {
-        startegyOverseer.reconsiderStrategy();
-        startegyOverseer.ExecuteStrategy();
+        strategyOverseer.reconsiderStrategy();
+        strategyOverseer.ExecuteStrategy();
     }
 
     private void NavigationConfiguration()
@@ -89,30 +88,18 @@ public class Unit : MonoBehaviour, PointOfInterest, Damagable
     {
         dead = true;
         eventDeath.Invoke(this);
+        deathEffect.Play();
+        deathEffect.gameObject.transform.parent = null;
+        ParticleSystemTimer.instanse.StartCoroutine(ParticleSystemTimer.instanse.TimerToStop(deathEffect, 1f));
         Destroy(gameObject);
     }
 
-    public void AttackCooldown(UnitAttack unitAttack)
-    {
-        StartCoroutine(unitAttack.AttackCooldown(unitData.ReloadTime));
-    }
 
     public bool isDead()
     {
         return dead;
     }
 
-    public virtual List<PointOfInterest> GetPointOfInterests()
-    {
-        List<PointOfInterest> points = new List<PointOfInterest>();
-
-        foreach (Commander commander in enemyCommanders)
-            points.AddRange(commander.getPointsOfInterest());
-
-        foreach (NeutralObject neutralObject in neutralObjectManager.objects)
-            if(!(neutralObject is Mineral))
-             points.Add(neutralObject);
-
-        return points;
-    }
+    public abstract List<PointOfInterest> GetPointOfInterests();
+    
 }

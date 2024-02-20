@@ -47,14 +47,14 @@ public class HarvesterStrategyOverseer : UnitStartegyOverseer
         if (((Harvester)unit).isFull)
             if (unit.TargetObject != null)
                 if (unit.TargetObject is MiningComplex)
-                   /*if (CheckTarget())*/
-                     if (Vector3.Distance(unit.getPriorityInofrmation().position, unit.TargetObject.getPriorityInofrmation().position) <= ((Harvester)unit).Data.ExtractRange)
+                    if (CheckTarget())
+                        if (Vector3.Distance(unit.getPriorityInofrmation().position, unit.TargetObject.getPriorityInofrmation().position) <= ((Harvester)unit).Data.ExtractRange)
                         return true;
 
         return false;
     }
 
-    /*private bool CheckTarget()
+    private bool CheckTarget()
     {
         if (((Damagable)unit.TargetObject).isDead())
         {
@@ -62,7 +62,7 @@ public class HarvesterStrategyOverseer : UnitStartegyOverseer
             return false;
         }
         return true;
-    }*/
+    }
 
 
 

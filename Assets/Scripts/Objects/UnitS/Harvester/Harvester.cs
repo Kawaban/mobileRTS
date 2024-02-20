@@ -51,7 +51,8 @@ public class Harvester : Unit
     public override void onStart()
     {
         base.onStart();
-        startegyOverseer = new HarvesterStrategyOverseer(this);
+        strategyOverseer = new HarvesterStrategyOverseer(this);
+        strategyOverseer.setDefaultStrategy();
     }
 
 

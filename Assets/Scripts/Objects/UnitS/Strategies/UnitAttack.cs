@@ -14,12 +14,12 @@ public class UnitAttack : UnitStrategy
 
     private void Shoot(Unit unit)
     {
-        if (((Damagable)unit.TargetObject).damageTaken(unit.UnitData.Damage))
+        if (((Damagable)unit.TargetObject).damageTaken(((Fighter)unit).FighterData.Damage))
         {
             unit.TargetObject = null;
         }
-
-        unit.AttackCooldown(this);
+        ((Fighter)unit).AttackEffect.Emit(1);    
+        ((Fighter)unit).AttackCooldown(this);
     }
 
     private void CheckTarget(Unit unit)
