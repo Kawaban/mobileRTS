@@ -29509,7 +29509,7 @@ Transform:
   m_GameObject: {fileID: 5699739949289023601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.164093, y: 0.5, z: -42.013794}
+  m_LocalPosition: {x: -17.643335, y: 0.5, z: 43.018528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29656,6 +29656,7 @@ MonoBehaviour:
   deathEffect: {fileID: 6730314239522716614}
   fighterData: {fileID: 11400000, guid: d971b492d919fd64bbd56356027236b6, type: 2}
   attackEffect: {fileID: 4056907612132173417}
+  gunRotationController: {fileID: 5976680704856351811}
 --- !u!1 &5778304430279397300
 GameObject:
   m_ObjectHideFlags: 0
@@ -39464,6 +39465,7 @@ GameObject:
   - component: {fileID: 2592368702525393118}
   - component: {fileID: 2286533033667779985}
   - component: {fileID: 1904899425881435972}
+  - component: {fileID: 5976680704856351811}
   m_Layer: 10
   m_Name: unit_Quad_A_Gun_Turret_yup
   m_TagString: Untagged
@@ -39538,6 +39540,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5976680704856351811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231769139950300996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6945c481399d8741a61d8b9ddda1ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7333124814501262943
 GameObject:
   m_ObjectHideFlags: 0

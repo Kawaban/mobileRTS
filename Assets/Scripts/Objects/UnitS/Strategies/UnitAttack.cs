@@ -8,6 +8,10 @@ public class UnitAttack : UnitStrategy
     {
         CheckTarget(unit);
         SetPath(unit);
+
+        if(((Fighter)unit).GunRotationController != null)
+            ((Fighter)unit).GunRotationController.RotateGun(unit.TargetObject.getPriorityInofrmation().position);
+
         if (canAttack)
             Shoot(unit);
     }

@@ -6,9 +6,11 @@ public class Fighter : Unit
 {
     [SerializeField] private FighterData fighterData;
     [SerializeField] private ParticleSystem attackEffect;
+    [SerializeField] private GunRotationController gunRotationController = null;
 
     public FighterData FighterData { get => fighterData; }
     public ParticleSystem AttackEffect { get => attackEffect; }
+    public GunRotationController GunRotationController { get => gunRotationController; }
     public override PriorityInfo getPriorityInofrmation()
     {
         PriorityInfo priorityInfo = new PriorityInfo();
