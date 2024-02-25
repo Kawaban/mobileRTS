@@ -13,6 +13,10 @@ public class Factory : Building
     private UnityEvent<Unit> unitEvent;
     private Commander commander;
 
+    private int numberOfUnits = 0;
+
+    public bool externalAcceptanceOfGenerationFlag = true;
+
     public UnityEvent<Unit> UnitEvent { get => unitEvent; }
     public Commander Commander { get => commander; set => commander = value; }
 
@@ -29,13 +33,14 @@ public class Factory : Building
         base.baseStart();
         level = 0;
         levelMax = factoryDataLevels.Count;
-        /* StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));*/
+        /*readyToGenearate = false;
+        StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));*/
         readyToGenearate = true;
     }
 
     void Update()
     {
-        if (readyToGenearate)
+        if (readyToGenearate && numberOfUnits <= factoryDataLevels[level].LimitOfUnits && externalAcceptanceOfGenerationFlag)
             GenerateUnit();
     }
 
@@ -45,7 +50,8 @@ public class Factory : Building
         {
             GameObject generatedUnit = Instantiate(factoryDataLevels[level].GeneratedUnit, spawnPoint.position, Quaternion.identity);
             unitEvent.Invoke(generatedUnit.GetComponent<Unit>());
-
+            generatedUnit.GetComponent<Unit>().EventDeath.AddListener(UnitDeath);
+            numberOfUnits++;
             StartCoroutine(GenerationCooldown(factoryDataLevels[level].SecondsToGenerate));
         }
 
@@ -77,5 +83,10 @@ public class Factory : Building
         priorityInfo.position = gameObject.transform.position;
         priorityInfo.type = PointType.FACTORY;
         return priorityInfo;
+    }
+
+    private void UnitDeath(Unit unit)
+    {
+        numberOfUnits--;
     }
 }

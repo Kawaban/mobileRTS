@@ -7,6 +7,7 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
     private float health;
     private bool dead = false;
     [SerializeField] private BuildingData buildingData;
+    [SerializeField] private ParticleSystem deathEffect;
 
     private UnityEvent<Building> eventDeath;
 
@@ -39,6 +40,9 @@ public abstract class Building : MonoBehaviour, PointOfInterest, Damagable
     {
         dead = true;
         eventDeath.Invoke(this);
+        deathEffect.Play();
+        deathEffect.gameObject.transform.parent = null;
+        ParticleSystemTimer.instanse.StartCoroutine(ParticleSystemTimer.instanse.TimerToStop(deathEffect, 1f));
         Destroy(gameObject);
     }
 

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "My Assets/FighterData")]
-public class FighterData : ScriptableObject
+
+
+[CreateAssetMenu(menuName = "My Assets/FactoryData")]
+public class TurretData : ScriptableObject
 {
     [SerializeField] private float damage;
     [SerializeField] private float attackRange;

@@ -7,6 +7,7 @@ public class UnitData : ScriptableObject
     [SerializeField] private float acceleration;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float targetOffset;
+    [SerializeField] private UnitType typeOf;
 
 
     public float Speed { get => speed; }
@@ -14,5 +15,6 @@ public class UnitData : ScriptableObject
     public float RotationSpeed { get => rotationSpeed; }
     public float TargetOffset { get => targetOffset; }
     public float Health { get => health; }
+    public UnitType TypeOf { get => typeOf; }
    
 }

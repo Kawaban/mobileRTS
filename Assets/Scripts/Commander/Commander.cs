@@ -21,22 +21,9 @@ public class Commander : MonoBehaviour
     {
         units = new List<Unit>();
         buildings = new List<Building>();
-      /*  createMiningComplex();
-        createFactory();*/
     }
 
 
-    /*private void createFactory(Vector3 position)
-    {
-        debugPointfactory.position = position;
-        GameObject factory = Instantiate(commanderData.Factory, debugPointfactory);
-        Factory factoryObj = factory.GetComponent<Factory>();
-
-        factoryObj.Commander = this;
-        factoryObj.UnitEvent.AddListener(addUnit);
-        factoryObj.EventDeath.AddListener(BuildingDeath);
-        buildings.Add(factoryObj);
-    }*/
 
     public void createBuilding(BuildingType buildingType, Vector3 position)
     {
@@ -66,6 +53,15 @@ public class Commander : MonoBehaviour
                 factory.EventDeath.AddListener(BuildingDeath);
                 buildings.Add(factory);
                 break;
+            case BuildingType.TURRET:
+                if (!mineralLoss(commanderData.Turret.GetComponent<Turret>().BuildingData.ConstructionCost))
+                    return;
+                createdBulding = Instantiate(commanderData.Turret, position, Quaternion.identity);
+                Turret turret = createdBulding.GetComponent<Turret>();
+                turret.EnemyCommanders =enemyCommanders;
+                turret.EventDeath.AddListener(BuildingDeath);
+                buildings.Add(turret);
+                break;
 
             default:
                 break;
@@ -77,17 +73,6 @@ public class Commander : MonoBehaviour
            
     }
 
-  /*  private void createMiningComplex(Vector3 position)
-    {
-        debugPointmining.position = position;
-        GameObject factory = Instantiate(commanderData.MiningComplex, debugPointmining);
-        Factory factoryObj = factory.GetComponent<MiningComplex>();
-
-        factoryObj.Commander = this;
-        factoryObj.UnitEvent.AddListener(addUnit);
-        factoryObj.EventDeath.AddListener(BuildingDeath);
-        buildings.Add(factoryObj);
-    }*/
 
     public void addUnit(Unit unit)
     {

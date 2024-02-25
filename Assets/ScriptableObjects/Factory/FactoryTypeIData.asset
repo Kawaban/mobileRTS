@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76eafeb65ac8dff4a908aee24c4b5f0a, type: 3}
   m_Name: FactoryTypeIData
   m_EditorClassIdentifier: 
-  generatedUnit: {fileID: 60879404341801180, guid: 79cda0c5d15f58244bcca3bb6a077f15,
+  generatedUnit: {fileID: 5699739949289023601, guid: 79cda0c5d15f58244bcca3bb6a077f15,
     type: 3}
-  secondsToGenerate: 5
+  secondsToGenerate: 20
   costOfGeneration: 20

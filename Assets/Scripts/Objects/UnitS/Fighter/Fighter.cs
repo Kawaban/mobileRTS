@@ -24,7 +24,9 @@ public class Fighter : Unit
         List<PointOfInterest> points = new List<PointOfInterest>();
 
         foreach (Commander commander in base.EnemyCommanders)
-            points.AddRange(commander.getPointsOfInterest());
+            foreach (PointOfInterest point in commander.getPointsOfInterest())
+               if(CheckPoint(point))
+                   points.Add(point);
 
         foreach (NeutralObject neutralObject in base.NeutralObjectManager.objects)
             if (!(neutralObject is Mineral))
@@ -43,6 +45,23 @@ public class Fighter : Unit
         base.onStart();
         strategyOverseer = new FighterStrategyOverseer(this);
         strategyOverseer.setDefaultStrategy();
+    }
+
+    private bool CheckPoint(PointOfInterest point)
+    {
+       
+        if(point is Unit)
+        {
+            if ((((Unit)point).UnitData.TypeOf == UnitType.AIR_UNIT && fighterData.AttackType == AttackType.GROUND) || (((Unit)point).UnitData.TypeOf == UnitType.GROUND_UNIT && fighterData.AttackType == AttackType.AIR))
+                return false;
+        }
+        else if(point is Building)
+        {
+            if(fighterData.AttackType == AttackType.AIR)
+                return false;
+        }
+
+        return true;
     }
 
 

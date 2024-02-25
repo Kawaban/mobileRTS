@@ -8,14 +8,36 @@ public enum PointType
     MINERAL,
     HARVESTER,
     MINING_COMPLEX,
-    TOYOTA
+    TOYOTA,
+    TURRET
 }
 
 public enum BuildingType
 {
    
     FACTORY,
-    MINING_COMPLEX
+    MINING_COMPLEX,
+    TURRET
+}
+
+public enum UnitType
+{
+    AIR_UNIT,
+    GROUND_UNIT
+}
+
+public enum AttackRule
+{
+   CLOSEST,
+   STRONGEST,
+   WEAKEST
+}
+
+public enum AttackType
+{
+    AIR,
+    GROUND,
+    BOTH
 }
 
 public struct PriorityInfo
@@ -28,3 +50,4 @@ public interface PointOfInterest
 {
     public PriorityInfo getPriorityInofrmation();
 }
+

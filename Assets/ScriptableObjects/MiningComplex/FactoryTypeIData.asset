@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generatedUnit: {fileID: 5643345378341590766, guid: fb1e770192475af4a9184af0d1610d96,
     type: 3}
-  secondsToGenerate: 5
+  secondsToGenerate: 15
   costOfGeneration: 15

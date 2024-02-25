@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TOYOTAUnitData
   m_EditorClassIdentifier: 
   health: 11
-  speed: 20
-  acceleration: 7
+  speed: 10
+  acceleration: 4
   rotationSpeed: 100
   targetOffset: 3
