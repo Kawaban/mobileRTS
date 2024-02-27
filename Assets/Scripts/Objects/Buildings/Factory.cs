@@ -40,7 +40,7 @@ public class Factory : Building
 
     void Update()
     {
-        if (readyToGenearate && numberOfUnits <= factoryDataLevels[level].LimitOfUnits && externalAcceptanceOfGenerationFlag)
+        if (readyToGenearate && numberOfUnits < factoryDataLevels[level].LimitOfUnits && externalAcceptanceOfGenerationFlag)
             GenerateUnit();
     }
 

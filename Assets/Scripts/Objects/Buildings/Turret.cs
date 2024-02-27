@@ -9,9 +9,10 @@ public class Turret : Building
     private List<Commander> enemyCommanders;
     private Damagable target;
     private bool canAttack=true;
+    [SerializeField] private GunRotationController gunRotationController;
     [SerializeField] private ParticleSystem attackEffect;
 
-    public List<Commander> EnemyCommanders {  set => EnemyCommanders = value; }
+    public List<Commander> EnemyCommanders { get => enemyCommanders; set => enemyCommanders = value; }
 
     void Awake()
     {
@@ -74,6 +75,7 @@ public class Turret : Building
         {
             if (Vector3.Distance(point.getPriorityInofrmation().position, transform.position) < turretData.AttackRange)
             {
+                    gunRotationController.RotateGun(point.getPriorityInofrmation().position);
                     target = (Damagable)point;  
             }
         }

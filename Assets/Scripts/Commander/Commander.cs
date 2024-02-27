@@ -58,7 +58,7 @@ public class Commander : MonoBehaviour
                     return;
                 createdBulding = Instantiate(commanderData.Turret, position, Quaternion.identity);
                 Turret turret = createdBulding.GetComponent<Turret>();
-                turret.EnemyCommanders =enemyCommanders;
+                turret.EnemyCommanders = enemyCommanders;
                 turret.EventDeath.AddListener(BuildingDeath);
                 buildings.Add(turret);
                 break;

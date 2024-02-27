@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "My Assets/FactoryData")]
+[CreateAssetMenu(menuName = "My Assets/TurretData")]
 public class TurretData : ScriptableObject
 {
     [SerializeField] private float damage;
